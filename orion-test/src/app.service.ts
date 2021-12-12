@@ -56,7 +56,7 @@ export class AppService implements OnModuleInit {
       const infuraOptions = this.configService.get<IInfuraOptions>(CONFIG_INFURA_OPTIONS_SERVICE_REGISTER_AS);
       items.map((addr) => {
         if (addr.history.length) {
-          this.addrBlock.set(addr.addr, addr.history[0].block);
+          this.addrBlock.set(addr.addr, addr.history[0].block + 1);
         } else {
           this.addrBlock.set(addr.addr, infuraOptions?.startBlockNum ?? 0);
         }
